@@ -19,6 +19,16 @@ find_package(catkin REQUIRED COMPONENTS
   std_srvs
 )
 
+add_message_files(
+  FILES
+  RGBGrayscaleImage.msg
+)
+
+generate_messages(
+  DEPENDENCIES
+  sensor_msgs
+)
+
 ###################################
 ## catkin specific configuration ##
 ###################################

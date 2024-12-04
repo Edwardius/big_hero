@@ -92,7 +92,8 @@ class RealEnv:
         self.puppet_bot_right.gripper.core.pub_single.publish(self.gripper_command)
 
     def _reset_joints(self):
-        reset_position = START_ARM_POSE[:6]
+        # reset_position = START_ARM_POSE[:6]
+        reset_position = [0, -1.5, 1.5, 0, 0, 0]
         move_arms([self.puppet_bot_left, self.puppet_bot_right], [reset_position, reset_position], move_time=1)
 
     def _reset_gripper(self):
