@@ -1,0 +1,39 @@
+{
+  "name": "ROS2 Development Container (GPU)",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "args": {
+      "ROS_DISTRO": "jazzy",
+      "USERNAME": "eddy",
+      "TARGETARCH": "gpu",
+      "CUDA_VERSION": "12.9.1",
+      "UBUNTU_VERSION": "24.04",
+      "USER_UID": "1000",
+      "USER_GID": "1000"
+    }
+  },
+  "runArgs": [
+    "--network=host",
+    "--gpus=all"
+  ],
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/deep_ros_ws,type=bind,consistency=cached"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-python.python",
+        "ms-vscode.cmake-tools",
+        "redhat.vscode-yaml",
+        "ms-iot.vscode-ros"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/bin/python3",
+        "terminal.integrated.shell.linux": "/bin/bash"
+      }
+    }
+  },
+  "remoteUser": "eddy"
+}
